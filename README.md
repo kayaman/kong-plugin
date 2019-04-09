@@ -1,5 +1,6 @@
 Kong plugin template
 ====================
+[![Build Status](https://travis-ci.org/kayaman/kong-plugin.svg?branch=master)](https://travis-ci.org/kayaman/kong-plugin)
 
 This repository contains a very simple Kong plugin template to get you
 up and running quickly for developing your own plugins.
