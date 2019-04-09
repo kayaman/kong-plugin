@@ -4,7 +4,7 @@ dist: xenial
 sudo: false
 
 jdk:
-  - oraclejdk10
+  - openjdk10
 
 notifications:
   email: false
