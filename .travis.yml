@@ -1,4 +1,4 @@
-language: java
+language: generic
 
 dist: xenial
 sudo: false
@@ -11,6 +11,7 @@ notifications:
 
 services:
   - redis-server
+  - docker
 
 addons:
   postgresql: "9.5"
@@ -19,10 +20,6 @@ addons:
       - net-tools
       - libpcre3-dev
       - build-essential
-
-services:
-  - redis
-  - docker
 
 env:
   global:
@@ -40,11 +37,11 @@ env:
     - KONG_TEST_PLUGINS=bundled,$PLUGIN_NAME
     - KONG_PLUGINS=bundled,$PLUGIN_NAME
 
-  # matrix:
-  #   - OPENRESTY=$OPENRESTY_BASE
-  #     CASSANDRA=$CASSANDRA_BASE
-  #   - OPENRESTY=$OPENRESTY_LATEST
-  #     CASSANDRA=$CASSANDRA_LATEST
+  matrix:
+    - OPENRESTY=$OPENRESTY_BASE
+      CASSANDRA=$CASSANDRA_BASE
+    - OPENRESTY=$OPENRESTY_LATEST
+      CASSANDRA=$CASSANDRA_LATEST
 
 before_install:
   - git clone https://github.com/Kong/kong.git kong-ce
