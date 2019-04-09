@@ -36,12 +36,7 @@ env:
     - PLUGIN_NAME=myplugin
     - KONG_TEST_PLUGINS=bundled,$PLUGIN_NAME
     - KONG_PLUGINS=bundled,$PLUGIN_NAME
-
-  matrix:
-    - OPENRESTY=$OPENRESTY_BASE
-      CASSANDRA=$CASSANDRA_BASE
-    - OPENRESTY=$OPENRESTY_LATEST
-      CASSANDRA=$CASSANDRA_LATEST
+    - KONG_TEST_DATABASE=postgres
 
 before_install:
   - git clone https://github.com/Kong/kong.git kong-ce
