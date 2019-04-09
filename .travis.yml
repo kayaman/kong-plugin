@@ -1,7 +1,7 @@
 language: java
 
-dist: trusty
-sudo: required
+dist: xenial
+sudo: false
 
 jdk:
   - oraclejdk8
@@ -26,16 +26,17 @@ services:
 
 env:
   global:
-    - LUAROCKS=2.4.3
-    - OPENSSL=1.0.2n
+    - LUAROCKS=3.0.4
+    - OPENSSL=1.1.1b
     - CASSANDRA_BASE=2.2.12
     - CASSANDRA_LATEST=3.9
     - OPENRESTY_BASE=1.13.6.2
     - OPENRESTY_LATEST=1.13.6.2
+    - OPENRESTY=$OPENRESTY_BASE
     - DOWNLOAD_CACHE=$HOME/download-cache
     - INSTALL_CACHE=$HOME/install-cache
     - BUSTED_ARGS="-o gtest -v --exclude-tags=flaky,ipv6"
-    - PLUGIN_NAME=euro-traffic
+    - PLUGIN_NAME=myplugin
     - KONG_TEST_PLUGINS=bundled,$PLUGIN_NAME
     - KONG_PLUGINS=bundled,$PLUGIN_NAME
 
