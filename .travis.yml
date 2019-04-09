@@ -47,7 +47,6 @@ env:
       CASSANDRA=$CASSANDRA_LATEST
 
 before_install:
-  - source setup_env.sh
   - git clone https://github.com/Kong/kong.git kong-ce
   - source kong-ce/.ci/setup_env.sh
 
