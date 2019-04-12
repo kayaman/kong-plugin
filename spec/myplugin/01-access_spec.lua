@@ -69,6 +69,25 @@ for _, strategy in helpers.each_strategy() do
 
 
 
+    describe("request specific route without specific header", function()
+      it("gets a 'unspecific' header", function()
+        local r = assert(client:send {
+          method = "GET",
+          path = "/local",
+          headers = {}
+        })
+        
+        -- validate that the request succeeded, response status 200
+        assert.response(r).has.status(200)
+        
+        -- now check the request (as echoed by mockbin) to have the header
+        local header_value = assert.request(r).has.header("x-euro-traffic")
+        -- validate the value of that header
+        assert.equal("all", header_value)
+      end)
+    end)
+
+
     describe("request", function()
       it("gets a 'hello-world' header", function()
         local r = assert(client:send {

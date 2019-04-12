@@ -61,8 +61,16 @@ end --]]
 function plugin:access(plugin_conf)
   plugin.super.access(self)
 
+  local path = kong.request.get_path()
+  kong.log.debug(path)
+
+  if path == "/local" then
+    ngx.req.set_header("X-Euro-Traffic", "restricted")
+  else
+    ngx.req.set_header("X-Euro-Traffic", "all")
+  end
   -- your custom code here
-  ngx.req.set_header("Hello-World", "this is on a request")
+  
 
 end --]]
 
