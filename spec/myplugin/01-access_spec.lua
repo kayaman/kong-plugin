@@ -19,12 +19,12 @@ for _, strategy in helpers.each_strategy() do
         --
         local bp = helpers.get_db_utils(strategy, nil, { PLUGIN_NAME })
 
-        local route1 = bp.routes:insert({
-          hosts = { "test1.com" },
+        local route2 = bp.routes:insert({
+          paths = { "/local" },
         })
         bp.plugins:insert {
           name = PLUGIN_NAME,
-          route = { id = route1.id },
+          route_id = route2.id,
           config = {},
         }
       else
