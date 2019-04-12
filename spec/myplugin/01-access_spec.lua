@@ -20,7 +20,7 @@ for _, strategy in helpers.each_strategy() do
         local bp = helpers.get_db_utils(strategy, nil, { PLUGIN_NAME })
 
         local route2 = bp.routes:insert({
-          paths = { "/local" },
+          paths = [ "/local" ],
         })
         bp.plugins:insert {
           name = PLUGIN_NAME,
